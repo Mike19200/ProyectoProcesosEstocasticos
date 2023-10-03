@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#score {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#drawCard {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+#ExperimentoContainer {
+    flex: 1;
+}
+
+#Experimento {
+    text-align: center;
+}
+
+#otherContent {
+    flex: 1;
+}
+
