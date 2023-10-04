@@ -1,10 +1,8 @@
 const cardValues = {
-    'red': 10,
-    'black': -5,
-    'heart': 15,
-    'diamond': 20,
-    'spade': -15,
-    'club': -20
+    'hearts': 10,
+    'diamonds': 20,
+    'spades': -5,
+    'clubs': -10
 };
 
 const scoreElement = document.getElementById('score');
@@ -13,16 +11,21 @@ const drawCountInput = document.getElementById('drawCount');
 const progressElement = document.getElementById('progress');
 
 let totalScore = 0;
+let cardsLeft = 52;
 
 function drawCard() {
-    const colors = ['red', 'black'];
-    const suits = ['heart', 'diamond', 'spade', 'club'];
+    if (cardsLeft === 0) {
+        alert('No quedan cartas en la baraja.');
+        return;
+    }
 
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    const randomSuit = suits[Math.floor(Math.random() * suits.length)];
+    const suits = ['hearts', 'diamonds', 'spades', 'clubs'];
+    const randomSuitIndex = Math.floor(Math.random() * suits.length);
+    const randomSuit = suits[randomSuitIndex];
 
-    const cardType = randomColor;
-    const cardValue = cardValues[cardType];
+    cardsLeft--;
+    
+    const cardValue = cardValues[randomSuit];
 
     totalScore += cardValue;
 
