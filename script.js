@@ -1,9 +1,12 @@
 const cardValues = {
-    'hearts': 10,
-    'diamonds': 20,
-    'spades': -5,
-    'clubs': -10
+    'hearts': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'],
+    'diamonds': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'],
+    'spades': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'],
+    'clubs': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
 };
+
+const maxCardsPerType = 4; // Máximo 4 cartas de cada tipo (J, Q, K, A)
+const maxCardsPerNumber = 9; // Máximo 9 cartas numéricas de cada tipo
 
 const scoreElement = document.getElementById('score');
 const drawCardButton = document.getElementById('drawCard');
@@ -23,11 +26,23 @@ function drawCard() {
     const randomSuitIndex = Math.floor(Math.random() * suits.length);
     const randomSuit = suits[randomSuitIndex];
 
-    cardsLeft--;
-    
-    const cardValue = cardValues[randomSuit];
+    const cardArray = cardValues[randomSuit];
 
-    totalScore += cardValue;
+    if (cardArray.length === 0) {
+        drawCard(); // Si ya se han extraído todas las cartas de este tipo, intenta de nuevo
+        return;
+    }
+
+    const randomCardIndex = Math.floor(Math.random() * cardArray.length);
+    const randomCard = cardArray.splice(randomCardIndex, 1)[0];
+
+    cardsLeft--;
+
+    if (isNaN(randomCard)) {
+        totalScore += 10; // J, Q, K valen 10
+    } else {
+        totalScore += randomCard;
+    }
 
     scoreElement.textContent = 'Puntuación Total: ' + totalScore;
 }
