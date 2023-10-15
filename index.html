@@ -20,9 +20,17 @@
             </div>
         </div>
         <div id="otherContent">
-            <!-- Contenido del div a la derecha -->
+            <div id="expectedValue">
+                <canvas id="chart"></canvas>
+            </div>
+            <div id="probabilityChartContainer">
+                <h2>Probabilidad de alcanzar 200 puntos o más</h2>
+                <canvas id="probabilityChart"></canvas>
+            </div>
+            <canvas id="comparisonChart"></canvas>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
