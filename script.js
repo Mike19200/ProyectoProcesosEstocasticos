@@ -1,11 +1,33 @@
+const cardValues = {
+    'hearts': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'],
+    'diamonds': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'],
+    'spades': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'],
+    'clubs': [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+};
+
+const maxCardsPerType = 4;
+const maxCardsPerNumber = 9;
+
 const scoreElement = document.getElementById('score');
 const drawCardButton = document.getElementById('drawCard');
 const drawCountInput = document.getElementById('drawCount');
 const progressElement = document.getElementById('progress');
 const histogramCtx = document.getElementById('histogramChart').getContext('2d');
 
+
 let totalScore = 0;
 let cardsLeft = 52;
+
+let cardCounts = {};
+
+const suits = ['hearts', 'diamonds', 'spades', 'clubs'];
+
+function initializeCardCounts() {
+    for (const suit in cardValues) {
+        cardCounts[suit] = cardValues[suit].length;
+    }
+}
+
 let scoreCounts = Array.from({ length: 201 }, () => 0);
 
 const histogramChart = new Chart(histogramCtx, {
