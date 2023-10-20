@@ -38,6 +38,15 @@ p{
     justify-content: center;
 }
 
+#containerGraphic{
+    flex: 1;
+}
+
+#probabilityChart{
+    width: 300px;
+    height: 200px;
+}
+
 #ExperimentoContainer {
     flex: 1;
 }
@@ -48,5 +57,29 @@ p{
 
 #otherContent {
     flex: 1;
+}
+
+#resultados {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Cambiado de flex-start a space-between */
+    margin: 0;
+    margin-top: 10px; /* Agregado margen superior para separación */
+}
+
+#resultados li {
+    margin: 5px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    min-width: 35%; /* Cambiado de 100px a 30% para tener tres columnas */
+    text-align: center;
+}
+
+/* Estilos para el contenedor de la lista de resultados */
+#resultadosContainer {
+    max-width: 400px; /* Ancho máximo para limitar el espacio */
 }
 

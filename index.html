@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>La frecuencia relativa de ocurrencia de llegar a 200 puntos o más según el numero de extracciones.</h1>
+    <h1>La frecuencia relativa de ocurrencia de llegar a 200 puntos o más según el numero de extracciones</h1>
     <br>
     <p>El propósito de este experimento es comprender la probabilidad de alcanzar una puntuación total de 200 puntos o más en el juego de cartas. A medida que agregamos más interacciones, obtenemos una estimación más precisa de esta probabilidad. Esto se debe a que, al realizar más simulaciones, tenemos más datos para basar nuestro cálculo y, por lo tanto, nuestra estimación se vuelve más confiable.</p>
     <div id="container">
@@ -15,17 +15,40 @@
             <div id="Experimento">
                 <div id="score">Puntuación Total: 0</div>
                 <br>
-                <input type="number" id="drawCount" min="1" value="1">
-                <button id="drawCard">Extraer Carta</button>
+                <button id="drawCard">Extraer 5 Cartas</button>
                 <br>
                 <br>
                 <div id="progress"></div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="inputContainer">
+                    <label for="numSimulations">Número de Simulaciones:</label>
+                    <br>
+                    <br>
+                    <input type="number" id="numSimulations" min="1" value="1">
+                    <button id="startSimulation">Iniciar Simulación</button>
+                </div>
             </div>
         </div>
         <div id="otherContent">
-            <div id="expectedValue">
-                <canvas id="histogramChart"></canvas>
+            <div id="resultadosContainer">
+                <h2>Resultados</h2>
+                <ul id="resultados"></ul>
             </div>
+            <br>
+            <br>
+            <button id="calcularPromedio">Calcular Promedio</button>
+            <button id="generateChart">Generar Gráfica Frecuencia</button>
+            <button id="generateGraphProm">Generar Gráfica Promedio</button>
+            <canvas id="probabilityChart"></canvas>
+            <canvas id="promedioChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+    <div id="container">
+        <div id="containerGraphic">
+
         </div>
     </div>
 
